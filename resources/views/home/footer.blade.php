@@ -72,7 +72,21 @@
                             <ul>
                                <li><a style="color: #2225d3;" href="{{ route('client.login') }}">Connexion</a></li>
                                <li><a style="color: #2225d3;" href="{{ route('client.register') }}">Inscription</a></li>
-                               <li><a style="color: #2225d3;" href="{{url('client/show_cart')}}">Panier</a></li>
+                               @if (Auth::guard('client')->check())
+    <!-- Si le client est connecté -->
+    <li>
+        <a style="color: #2225d3;" href="{{ url('client/show_cart') }}">
+            Panier
+        </a>
+    </li>
+@else
+    <!-- Si aucun client connecté -->
+    <li>
+        <a style="color: #2225d3;" href="{{route('client.login') }}">
+            Panier
+        </a>
+    </li>
+@endif
                             </ul>
                          </div>
                       </div>

@@ -50,6 +50,8 @@
          <h5>
             Service client réactif
          </h5>
+         <br>
+         <br>
          <p>
            Notre équipe est disponible pour vous accompagner et répondre rapidement à toutes vos questions, avant et après votre achat.
          </p>

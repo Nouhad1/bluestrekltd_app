@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Str;
 
 use App\Models\Product;
 use App\Models\Category;
@@ -185,7 +186,7 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Quantité mise à jour ✅');
     }
 
-    public function remove_cart($id)
+    public function removeCartItem($id)
     {
         $cart = Cart::where('id', $id)->where('client_id', Auth::guard('client')->id())->first();
         if ($cart) $cart->delete();
@@ -361,25 +362,35 @@ class HomeController extends Controller
        Social Login
     ============================ */
 
+    // Redirection vers le provider
     public function redirect($provider)
     {
         return Socialite::driver($provider)->redirect();
     }
 
+    // Callback après authentification
     public function callback($provider)
     {
-        $socialUser = Socialite::driver($provider)->user();
-        $user = Client::where('email', $socialUser->getEmail())->first();
+        try {
+            $socialUser = Socialite::driver($provider)->user();
 
-        if (!$user) {
-            $user = Client::create([
-                'name' => $socialUser->getName(),
-                'email' => $socialUser->getEmail(),
-                'password' => bcrypt(uniqid()),
-            ]);
+            // Vérifier si l'utilisateur existe déjà
+            $user = Client::where('email', $socialUser->getEmail())->first();
+
+            if (!$user) {
+                // Créer un nouvel utilisateur
+                $user = Client::create([
+                    'name' => $socialUser->getName() ?? $socialUser->getNickname(),
+                    'email' => $socialUser->getEmail(),
+                    'password' => bcrypt(Str::random(16)), // mot de passe aléatoire
+                ]);
+            }
+
+            Auth::login($user);
+
+            return redirect()->route('home'); // redirige vers la page d'accueil
+        } catch (\Exception $e) {
+            return redirect()->route('client.login')->withErrors('Erreur lors de la connexion sociale : ' . $e->getMessage());
         }
-
-        Auth::guard('client')->login($user, true);
-        return redirect()->route('home');
     }
 }

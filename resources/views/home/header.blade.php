@@ -1,13 +1,13 @@
 <header class="header_section">
     <div class="container">
-       <nav class="navbar navbar-expand-lg custom_nav-container">
+       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img width="210" src="{{ asset('images/bluestrek.png') }}" alt="Logo" />
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""> </span>
-        </button> 
+        </button>  --}}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
 
@@ -41,7 +41,7 @@
 @else
     <!-- Si aucun client connecté -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('client.login') }}">
+        <a class="nav-link" href="{{route('client.login') }}">
             Panier
         </a>
     </li>

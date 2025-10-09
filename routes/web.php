@@ -133,5 +133,5 @@ Route::prefix('admin')->group(function () {
 });
 
 // Social login
-Route::get('auth/{provider}', [HomeController::class, 'redirect']);
-Route::get('auth/{provider}/callback', [HomeController::class, 'callback']);
+Route::get('login/{provider}', [HomeController::class, 'redirect'])->name('social.login');
+Route::get('login/{provider}/callback', [HomeController::class, 'callback'])->name('social.callback');

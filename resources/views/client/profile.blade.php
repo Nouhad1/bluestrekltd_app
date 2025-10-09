@@ -162,7 +162,14 @@
                                 <td>{{ $order->quantity }}</td>
                                 <td>{{ number_format($order->price ?? 0, 2) }}</td>
                                 <td>{{ number_format($order->total_price, 2) }}</td>
-                                <td>{{ ucfirst($order->delivery_status) }}</td>
+                                <td>
+    @if($order->delivery_status === 'delivered')
+        Livré
+    @else
+        En cours
+    @endif
+</td>
+
                             </tr>
                         @endforeach
                     </tbody>

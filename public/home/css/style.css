@@ -69,12 +69,12 @@ h2 {
     display: block;
     width: 70px;
     height: 5px;
-    background: bluestrek;
+    background: EcoShop;
     margin: 10px auto 10px;
 }
 
 .heading_container h2 span {
-  color: bluestrek;
+  color: EcoShop;
 }
 
 .heading_container p {
@@ -137,7 +137,6 @@ a:focus {
 
 .navbar-brand {
   font-family: 'Playfair Display', serif;
-  margin-left: 0px;
 }
 
 .navbar-brand span {
@@ -173,11 +172,11 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: bluestrek;
+  color: EcoShop;
 }
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link svg, .custom_nav-container .navbar-nav .nav-item.active .nav-link svg {
-  fill: bluestrek;
+  fill: EcoShop;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -189,7 +188,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn:hover {
-  color: bluestrek;
+  color: EcoShop;
 }
 
 .custom_nav-container .navbar-toggler {
@@ -278,23 +277,20 @@ a:focus {
 }
 
 .slider_section .detail-box h1 {
-    font-size: 3.2rem;
+    font-size: 4.5rem;
     font-weight: bold;
     margin-bottom: 15px;
     color: #002c3e;
     line-height: 70px;
 }
 
-.detail-box h1{
-  margin-top: 5px;
-}
 .slider_section .detail-box h1 span {
   color:#2410ba;
 }
 
 .slider_section .detail-box p {
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 1.5rem;
 }
 
@@ -348,7 +344,7 @@ a:focus {
 
 .slider_bg_box {
   position: absolute;
-  top: 40px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -371,7 +367,7 @@ a:focus {
 .product_section .box {
     position: relative;
     margin-top: 25px;
-    padding: 40px 40px;
+    padding: 35px 35px;
     background-color: #f7f8f9;
     -webkit-transition: all .3s;
     transition: all .3s;
@@ -394,7 +390,7 @@ a:focus {
 }
 
 .product_section .box .img-box img {
-  max-width: 200%;
+  max-width: 100%;
   max-height: 160px;
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -797,63 +793,64 @@ a:focus {
   right: 25%;
 }
 
-/* ================= FOOTER SECTION ================= */
-
-/* Section principale du footer */
+/* footer section*/
 .footer_section {
-  background-color: #edebeb; /* fond principal */
-  padding: 40px 20px 20px;
-  margin-top: 20px;
-  font-family: 'Playfair Display', serif;
+  background-color: #6f6f6f10;
+  color: #000000;
+  padding-top: 70px;
 }
 
-/* Logo du footer */
-.footer_section .footer-logo {
-  display: block;
-  font-weight: bold;
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #ffffff;
+.footer_section {
+    color: #000000;
+    text-align: left;
 }
 
-/* Titres colonnes */
 .footer_section h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size: 28px;
 }
 
-/* Colonnes */
+.footer_section h4,
+.footer_section .footer-logo {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  text-align: left;
+}
+
 .footer_section .footer-col {
   margin-bottom: 30px;
 }
 
-/* Liens 
-.footer_section a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}*/
-
-.footer_section a:hover {
-  color: #ffd700; /* jaune doré au survol */
-}
-
-/* Liens de contact */
 .footer_section .footer_contact .contact_link_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .footer_section .footer_contact .contact_link_box a {
-  margin: 6px 0;
+    margin: 10px 0;
+    color: #002c3e;
 }
 
 .footer_section .footer_contact .contact_link_box a i {
   margin-right: 5px;
 }
 
-/* Réseaux sociaux */
+.footer_section .footer_contact .contact_link_box a:hover {
+  color: #2410ba;
+}
+
+.footer_section .footer-logo {
+  display: block;
+  font-weight: bold;
+  font-size: 32px;
+  color: #000000;
+}
+
 .footer_social {
   display: flex;
   gap: 12px;
@@ -877,6 +874,7 @@ a:focus {
 .footer_social a:hover {
   transform: scale(1.2);
   opacity: 0.85;
+  color: rgb(216, 89, 30);
 }
 
 /* Couleurs officielles */
@@ -887,29 +885,44 @@ a:focus {
 .footer_social .instagram { color: #E4405F; }  /* rose Instagram */
 .footer_social .pinterest { color: #E60023; }
 
-/* Carte (Google Map container) */
 .footer_section .map_container {
   width: 100%;
   height: 175px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .footer_section .map_container .map {
   height: 100%;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
-/* Bas de page (bandeau copyright) */
-.footer_bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
+.footer_section .map_container .map #googleMap {
+  height: 100%;
+}
+
+.footer_section .footer-info {
   text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-  font-size: 14px;
-  color: #000000;
+  margin-top: 25px;
 }
-/* ================= END FOOTER SECTION ================= */ 
 
+.footer_section .footer-info p {
+    color: #ffffff;
+    margin: 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer_section .footer-info p a {
+  color: inherit;
+}
 /*# sourceMappingURL=style.css.map */
 
 .heading_container.heading_center h3 {
@@ -980,50 +993,43 @@ footer {
     font-size: 15px;
 }
 
-.widget_menu {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
 .widget_menu h3 {
-  margin-top: 40px;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2px;
-    margin-bottom: 15px;
-    text-align: left; /* tu peux mettre center si tu veux centrer */
+    margin-bottom: 25px;
 }
 
 .widget_menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column; /* empile les liens */
-    gap: 8px; /* espace entre les liens */
+    margin-top: 20px;
 }
 
 .widget_menu ul li {
+    float: left;
     width: 100%;
 }
 
 .widget_menu ul li a {
     font-size: 15px;
     color: #000;
-    text-decoration: none;
-    display: block;
-    padding: 4px 0;
-    transition: color 0.3s;
+    margin-bottom: 0;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
 }
-
-.widget_menu ul li a:hover {
-    color: #2225d3; /* bleu au hover */
-}
-
 
 .field {
     display: flex;
+}
+
+.widget_menu {
+    float: left;
+    width: 100%;
+    margin-top: 40px;
 }
 
 div.form_sub .field input[type="email"], div.form_sub .field input[type="email"]:hover, div.form_sub .field input[type="email"]:focus {

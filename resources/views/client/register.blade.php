@@ -108,11 +108,12 @@
           <h2>Créer un compte client</h2>
 
           <!-- Boutons sociaux -->
-          <div class="social-btns text-center">    
-            <a href="https://www.linkedin.com" class="btn btn-outline-info"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            <a href="https://www.google.com" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
-            <a href="https://www.facebook.com" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
-          </div>
+          {{-- <div class="social-btns text-center mb-3">
+            <a href="{{ route('social.login', 'linkedin') }}" class="btn btn-outline-info"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="{{ route('social.login', 'google') }}" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
+            <a href="{{ route('social.login', 'facebook') }}" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
+          </div> --}}
+
 
           <!-- Affichage des erreurs -->
           @if ($errors->any())

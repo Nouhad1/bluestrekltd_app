@@ -120,11 +120,11 @@
           <h2>Connexion Client</h2>
 
            <!-- Boutons sociaux -->
-          <div class="social-btns text-center">    
+          {{-- <div class="social-btns text-center">    
             <a href="https://www.linkedin.com" class="btn btn-outline-info"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
             <a href="https://www.google.com" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
             <a href="https://www.facebook.com" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
-          </div>
+          </div> --}}
 
           <!-- Affichage des erreurs -->
           @if ($errors->any())

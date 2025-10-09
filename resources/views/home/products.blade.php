@@ -50,6 +50,15 @@
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
             outline: none;
         }
+
+         /* Fixer la barre de recherche en haut */
+        .filter-bar {
+            position: sticky;  
+            top: 20px;          
+            z-index: 1000;   
+            background: #fff;  
+            padding: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -61,11 +70,11 @@
     <section class="product_section layout_padding">
         <div class="container">
             <!-- Input de filtre -->
-<div class="row mb-3">
-    <div class="col-12 col-md-6 mx-auto">
-        <input type="text" id="searchInput" class="form-control-search" placeholder="Rechercher par designation...">
-    </div>
-</div>
+        <div class="row mb-3 filter-bar">
+           <div class="col-12 col-md-6 mx-auto">
+               <input type="text" id="searchInput" class="form-control-search" placeholder="Rechercher par designation...">
+            </div>
+        </div>
 
 
             {{-- Produits --}}
