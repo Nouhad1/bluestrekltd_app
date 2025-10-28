@@ -20,4 +20,11 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'id_category');
     }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('orderByName', function ($query) {
+            $query->orderBy('catagory_name', 'asc');
+        });
+    }
 }
