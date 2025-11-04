@@ -1,16 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
-    <!-- Basic -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-
     <title>Nos Produits</title>
 
     <!-- CSS -->
@@ -20,76 +13,112 @@
     <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}">
 
     <style>
-        .product-detail-container { max-width: 900px; width: auto; padding: 20px; background: #fff; }
-        .product-img { max-width: 100%; border-radius: 12px; }
-        .product-info h5 { font-size: 1.5rem; margin-bottom: 15px; }
-        .product-info h6 { margin-bottom: 10px; }
-        .price-original { text-decoration: line-through; color: red; margin-left: 10px; }
-        .price-discount { color: green; font-weight: bold; }
-        .btn-add-cart { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; width: 100%; font-size: 14px; transition: 0.3s; }
-        .btn-add-cart:hover { background: #1e40af; }
-        @media (max-width: 768px) {
-            .row-product { flex-direction: column; align-items: center; }
-            .product-info { margin-top: 20px; }
+        /* ---- Barre de recherche en haut à droite ---- */
+        .header-search {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* Input de recherche stylé */
-        .form-control-search {
-            align-self: center;
-            padding: 10px 15px;
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* ---- Icône stylisée ---- */
+        .search-icon {
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
-            font-size: 14px;
         }
 
-        .form-control-search:focus {
-            border-color: #2563eb;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        .search-icon:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #0062cc, #0099ff);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* ---- Champ de recherche ---- */
+        .search-input {
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 6px 12px;
+            margin-left: 10px;
             outline: none;
+            width: 0;
+            opacity: 0;
+            background: #fff;
+            color: #333;
+            transition: all 0.4s ease;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-         /* Fixer la barre de recherche en haut */
-        .filter-bar {
-            position: sticky;  
-            top: 20px;          
-            z-index: 1000;   
-            background: #fff;  
-            padding: 10px 0;
+        .search-input.show {
+            width: 200px;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .search-input.show {
+                width: 130px;
+            }
+        }
+
+        /* ---- Titre produit ---- */
+        .heading_container {
+            text-align: center;
+            margin-bottom: 30px;
         }
     </style>
 </head>
+
 <body>
 
     {{-- Header --}}
-    @include('home.header')
+    <div style="position: relative;">
+        @include('home.header')
+
+        {{-- Icône + champ de recherche alignés à droite du header --}}
+        <div class="header-search">
+            <div class="search-icon" onclick="toggleSearch()">
+                <i class="fa fa-search"></i>
+            </div>
+            <br><br><br><br><br><br><br>
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Rechercher un produit..." 
+                onkeyup="filterProducts()"
+            >
+        </div>
+    </div>
 
     {{-- Section Produits --}}
     <section class="product_section layout_padding">
         <div class="container">
-            <!-- Input de filtre -->
-        <div class="row mb-3 filter-bar">
-           <div class="col-12 col-md-6 mx-auto">
-               <input type="text" id="searchInput" class="form-control-search" placeholder="Rechercher par designation...">
+            <div class="heading_container heading_center">
+                <h2>Nos <span>produits</span></h2>
             </div>
-        </div>
 
-
-            {{-- Produits --}}
+            {{-- Liste des produits --}}
             <div class="row">
                 @forelse ($products as $product)
                     <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
                         <div class="box">
-
-                            {{-- Options au survol --}}
                             <div class="option_container">
                                 <div class="options">
                                     <a href="{{ url('product_details', $product->reference) }}" class="option1">
                                         Détails du produit
                                     </a>
-
                                     <form action="{{ url('client/add_cart', $product->reference) }}" method="POST">
                                         @csrf
                                         <div class="row mt-2">
@@ -112,7 +141,6 @@
 
                             <div class="detail-box">
                                 <h5>{{ $product->description }}</h5>
-
                                 @if($product->discount_price)
                                     <h6 style="color: blue">{{ $product->discount_price }} DH</h6>
                                     <h6 style="text-decoration: line-through; color: red">{{ $product->price }} DH</h6>
@@ -120,7 +148,6 @@
                                     <h6 style="color: red">{{ $product->price }} DH</h6>
                                 @endif
                             </div>
-
                         </div>
                     </div>
                 @empty
@@ -140,25 +167,30 @@
     {{-- Footer --}}
     @include('home.footer')
 
-    <!-- Scripts -->
+    <!-- JS -->
     <script src="{{ asset('home/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('home/js/popper.min.js') }}"></script>
     <script src="{{ asset('home/js/bootstrap.js') }}"></script>
     <script src="{{ asset('home/js/custom.js') }}"></script>
 
-    <!-- Filtrage instantané -->
+    <!-- Script de recherche -->
     <script>
-        const searchInput = document.getElementById('searchInput');
-        const products = document.querySelectorAll('.box');
+        function toggleSearch() {
+            const input = document.getElementById('searchInput');
+            input.classList.toggle('show');
+            if (input.classList.contains('show')) input.focus();
+        }
 
-        searchInput.addEventListener('input', function() {
-            const filter = this.value.toLowerCase();
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const products = document.querySelectorAll('.box');
 
             products.forEach(product => {
-                const description = product.querySelector('.detail-box h5').textContent.toLowerCase();
-                product.parentElement.style.display = description.includes(filter) ? '' : 'none';
+                const name = product.querySelector('.detail-box h5').textContent.toLowerCase();
+                product.parentElement.style.display = name.includes(filter) ? '' : 'none';
             });
-        });
+        }
     </script>
 
 </body>
