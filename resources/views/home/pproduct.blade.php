@@ -116,6 +116,7 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
@@ -158,7 +159,7 @@
                                         @csrf
                                         <div class="row mt-2">
                                             <div class="col-6">
-                                                <input type="number" name="quantity" value="1" min="1" class="form-control" style="width:100px;">
+                                                <input type="number" name="quantity" value="1" min="1" class="form-control">
                                             </div>
                                             <div class="col-6">
                                                 <button type="submit" class="btn btn-add-cart">

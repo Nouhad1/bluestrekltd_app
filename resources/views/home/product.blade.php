@@ -1,144 +1,164 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <base href="/public"> 
-    <!-- Basic -->
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <!-- Mobile Metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <!-- Site Metas -->
-      <meta name="keywords" content="" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <link rel="stylesheet" href="{{ asset('home/css/style.css') }}">
+    <base href="/public">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
     <title>Nos produits</title>
-    <!-- bootstrap core css -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('home/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}">
 
     <style>
-        .product-detail-container {
-            max-width: 900px;        
-            width: auto;              
+        /* Conteneur principal */
+        .category-belt {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
             padding: 20px;
-            background: #fff;
-            border-radius: 0px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
         }
 
-        .product-img {
-            max-width: 50%;
-            border-radius: 12px;
+        .category-belt::-webkit-scrollbar {
+            display: none;
         }
-        .product-info h5 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+
+        .category-list {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
-        .product-info h6 {
-            margin-bottom: 10px;
+
+        /* Carte image */
+        .category-item {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
         }
-        .price-original {
-            text-decoration: line-through;
-            color: red;
-            margin-left: 10px;
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
-        .price-discount {
-            color: green;
-            font-weight: bold;
+
+        .category-item:hover img {
+            transform: scale(1.08);
         }
-        .add-cart-btn {
-            background-color: #2563eb;
+
+        /* Nom sur image */
+        .category-name {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.55);
             color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
         }
-        .add-cart-btn:hover {
-            background-color: #1e40af;
+
+        .list {
+            text-decoration: none;
+            color: inherit;
         }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .row-product {
-                flex-direction: column;
-                align-items: center;
+            .category-item {
+                width: 150px;
+                height: 150px;
             }
-            .product-info {
-                margin-top: 20px;
+            .category-name {
+                font-size: 14px;
             }
+        }
+
+        header, .navbar {
+            position: relative;
+            z-index: 1050;
         }
     </style>
 </head>
+
 <body>
-      
+
+    @include('home.header')
+
     <section class="product_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>
-                    Nos <span>produits</span>
-                </h2>
+                <h2>Nos <span>produits</span></h2>
             </div>
 
-            <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <div class="box">
-                            <!-- overlay hover -->
-                            <div class="option_container">
-                                <div class="options">
-                                    <a href="{{ url('product_details', $product->reference) }}" class="option1">
-                                        Détails du produit
-                                    </a>
-
-                                    <form action="{{ url('client/add_cart', $product->reference) }}" method="POST">
-                                        @csrf
-                                        <div class="row mt-2">
-                                            <div class="col-6">
-                                                <input type="number" name="quantity" value="1" min="1" class="form-control input-quantity">
-                                            </div>
-                                            <div class="col-6">
-                                               <button type="submit" class="btn add-cart-btn">
-    <i class="fa fa-cart-plus"></i>
-</button>
-
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="img-box">
-                                <img src="{{ asset('product/'.$product->image) }}" alt="{{ $product->reference }}">
-                            </div>
-
-                            <div class="detail-box">
-                                <h5>{{ $product->description }}</h5>
-
-                                @if($product->discount_price)
-                                    <h6 style="color: blue">{{ $product->discount_price }} DH</h6>
-                                    <h6 style="text-decoration: line-through; color: red">{{ $product->price }} DH</h6>
-                                @else
-                                    <h6 style="color: red">{{ $product->price }} DH</h6>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+            <div class="category-belt">
+                <ul class="category-list">
+                    @foreach ($categories as $cat)
+                        @if (!empty($cat->image))
+                            <li>
+                                <a class="list" href="{{ route('products.byCategory', $cat->id) }}">
+                                    <div class="category-item">
+                                        <img src="/category/{{ $cat->image }}" alt="{{ $cat->catagory_name }}">
+                                        <div class="category-name">{{ $cat->catagory_name }}</div>
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
             </div>
 
-            <!-- Pagination -->
-            <div class="mt-3">
-                {!! $products->appends(Request::all())->links('pagination::bootstrap-5') !!}
-            </div>
         </div>
     </section>
 
-    {{-- @include('home.footer') --}}
+    <!-- JS -->
     <script src="{{ asset('home/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('home/js/bootstrap.js') }}"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="{{ asset('home/js/bootstrap.js') }}"></script>
 
-    <script src="home/js/jquery-3.4.1.min.js"></script>
-    <script src="home/js/bootstrap.js"></script>
+    <!-- Auto-scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const belt = document.querySelector('.category-belt');
+            let scrollAmount = 0;
+
+            function autoScroll() {
+                if (!belt) return;
+
+                if (belt.scrollWidth - belt.clientWidth <= scrollAmount) {
+                    scrollAmount = 0;
+                } else {
+                    scrollAmount += 1;
+                }
+
+                belt.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+
+            setInterval(autoScroll, 30);
+        });
+    </script>
+
 </body>
 </html>

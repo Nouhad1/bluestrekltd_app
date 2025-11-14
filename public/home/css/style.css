@@ -296,7 +296,7 @@ a:focus {
 
 .slider_section .detail-box a {
     display: inline-block;
-    padding: 12px 45px;
+    padding: 12px 35px;
     background-color: #2410ba;
     border: 1px solid #2410ba;
     color: #ffffff;
@@ -313,7 +313,10 @@ a:focus {
 }
 
 .slider_section .img-box img {
-  width: 100%;
+   display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 160px;
 }
 
 .slider_section .carousel-indicators {
@@ -391,10 +394,11 @@ a:focus {
 
 .product_section .box .img-box img {
   max-width: 100%;
-  max-height: 160px;
-  -webkit-transition: all .3s;
+  max-height: 270px; /* ou 300px selon ton design */
+  object-fit: contain; /* garde les proportions sans rogner */
   transition: all .3s;
 }
+
 
 .product_section .box .detail-box {
   text-align: center;
@@ -408,11 +412,12 @@ a:focus {
 
 .product_section .box .detail-box h5 {
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 35px;
+  text-align: center;
 }
 
 .product_section .box .detail-box h6 {
-  margin-top: 10px;
+  margin-top: 35px;
   color: #002c3e;
   font-weight: 600;
 }
@@ -584,6 +589,8 @@ a:focus {
 .detail-box h5 {
     font-size: 21px;
     font-weight: 700;
+    margin-top: 15px;
+  text-align: center;
 }
 
 .remove_line_bt h2::after {
@@ -756,7 +763,7 @@ a:focus {
 
 .client_section .box .detail-box h5 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 .client_section .box .detail-box h6 {
