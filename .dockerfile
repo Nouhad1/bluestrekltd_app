@@ -1,0 +1,6 @@
+.git
+vendor
+node_modules
+.env
+npm-debug.log
+composer.lock
