@@ -101,7 +101,7 @@
 
 <body>
 
-    @include('home.header')
+    {{-- @include('home.header') --}}
 
     <section class="product_section layout_padding">
         <div class="container">

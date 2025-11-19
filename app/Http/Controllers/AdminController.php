@@ -46,7 +46,7 @@ class AdminController extends Controller
         $category = Category::find($id);
         if ($category) {
             $category->delete();
-            return redirect()->back()->with('message', 'Catégorie ajoutée avec succès ✅');
+            return redirect()->back()->with('message', 'Catégorie supprimée avec succès ✅');
         }
 
         return redirect()->back()->withErrors(['error' => 'Catégorie introuvable']);
@@ -88,7 +88,11 @@ class AdminController extends Controller
 
     public function show_product()
     {
-        $products = Product::with('category')->paginate(10);
+        //$products = Product::with('category')->paginate(10);
+        $products = Product::with('category')
+                             ->get()
+                             ->sortBy('category.catagory_name');
+
         return view('admin.show_product', compact('products'));
     }
 
