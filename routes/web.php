@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -135,3 +137,7 @@ Route::prefix('admin')->group(function () {
 // Social login
 Route::get('login/{provider}', [HomeController::class, 'redirect'])->name('social.login');
 Route::get('login/{provider}/callback', [HomeController::class, 'callback'])->name('social.callback');
+
+Route::get('/test-db', function () {
+    return DB::table('sessions')->count();
+});
