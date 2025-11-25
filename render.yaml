@@ -38,10 +38,11 @@ services:
 
 databases:
   - name: bluestrekltd_db
-    databaseName: bluestrekltd_db
-    user: bluestrekltd_user
-    password: generate
+    databaseName: db_bluestrekltd
+    user: root
+    generatePassword: true  
     engine: mysql
     version: 8
     plan: free
     region: oregon
+
