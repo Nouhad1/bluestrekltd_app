@@ -2,15 +2,49 @@ services:
   - type: web
     name: laravel-app
     env: php
+    plan: free
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       php artisan key:generate
       php artisan migrate --force
     startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+
     envVars:
       - key: APP_ENV
         value: production
+
       - key: APP_DEBUG
         value: false
+
       - key: APP_KEY
         generateValue: true
+
+      # ----------------------------
+      # DATABASE CONFIG (IMPORTANT)
+      # ----------------------------
+      - key: DB_CONNECTION
+        value: pgsql
+
+      - key: DB_HOST
+        fromService: postgres-db
+        name: database
+
+      - key: DB_PORT
+        value: "5432"
+
+      - key: DB_DATABASE
+        fromService: postgres-db
+        property: database
+
+      - key: DB_USERNAME
+        fromService: postgres-db
+        property: user
+
+      - key: DB_PASSWORD
+        fromService: postgres-db
+        property: password
+
+databases:
+  - name: postgres-db
+    plan: free
+    engine: postgres
