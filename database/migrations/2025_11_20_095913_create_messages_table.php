@@ -8,10 +8,11 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('sender_name');
-            $table->string('sender_email');
-            $table->text('message');
-            $table->timestamps();
+            $table->string('name');        // Nom de l'expéditeur
+            $table->string('email');       // Email de l'expéditeur
+            $table->string('subject');     // Sujet du message
+            $table->text('message');       // Contenu du message
+            $table->timestamps();          // created_at & updated_at
         });
     }
 

@@ -8,7 +8,14 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+
+            // La FK pointera vers products.reference
+            $table->string('product_reference');
+            $table->foreign('product_reference')
+                  ->references('reference')
+                  ->on('products')
+                  ->onDelete('cascade');
+
             $table->integer('quantity');
             $table->date('entry_date');
             $table->timestamps();

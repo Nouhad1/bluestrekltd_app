@@ -9,6 +9,7 @@ return new class extends Migration {
         Schema::create('catagories', function (Blueprint $table) {
             $table->id();
             $table->string('catagory_name', 150)->unique();
+            $table->string('image')->nullable();   // ✔ Ajouté car ta table l’a déjà
             $table->timestamps();
         });
     }
