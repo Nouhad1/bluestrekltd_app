@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,28 +43,28 @@ Route::prefix('client')->group(function () {
     Route::get('/register', [HomeController::class, 'showRegisterForm'])->name('client.register');
     Route::post('/register', [HomeController::class, 'register'])->name('client.register.submit');
 
-    // Mot de passe oublié / reset
+    // Mot de passe oublié / reset (noms corrigés)
     Route::get('/forgot-password', [HomeController::class, 'showForgotForm'])->name('client.password.request');
-    Route::post('/forgot-password', [HomeController::class, 'sendResetLink'])->name('password.email');
-    Route::get('/reset-password/{token}', [HomeController::class, 'showResetForm'])->name('password.reset');
-    Route::post('/reset-password', [HomeController::class, 'resetPassword'])->name('password.update');
+    Route::post('/forgot-password', [HomeController::class, 'sendResetLink'])->name('client.password.email');
+    Route::get('/reset-password/{token}', [HomeController::class, 'showResetForm'])->name('client.password.reset');
+    Route::post('/reset-password', [HomeController::class, 'resetPassword'])->name('client.password.update');
 
     // Confirm password
-    Route::get('/confirm-password', [HomeController::class, 'showConfirmForm'])->name('password.confirm');
-    Route::post('/confirm-password', [HomeController::class, 'confirmPassword']);
+    Route::get('/confirm-password', [HomeController::class, 'showConfirmForm'])->name('client.password.confirm');
+    Route::post('/confirm-password', [HomeController::class, 'confirmPassword'])->name('client.password.confirm.post');
 
-    // Two-factor authentication
-    Route::get('/two-factor-challenge', [HomeController::class, 'showChallengeForm'])->name('two-factor.login');
-    Route::post('/two-factor-challenge', [HomeController::class, 'verifyChallenge']);
+    // Two-factor authentication (noms corrigés)
+    Route::get('/two-factor-challenge', [HomeController::class, 'showChallengeForm'])->name('client.two-factor.login');
+    Route::post('/two-factor-challenge', [HomeController::class, 'verifyChallenge'])->name('client.two-factor.verify');
 
     // Email Verification
     Route::get('/verify-email', function () {
         return view('client.verify-email');
-    })->middleware('auth:client')->name('verification.notice');
+    })->middleware('auth:client')->name('client.verification.notice');
 
     Route::post('/email/verification-notification', [HomeController::class, 'sendEmailVerification'])
         ->middleware(['auth:client', 'throttle:6,1'])
-        ->name('verification.send');
+        ->name('client.verification.send');
 
     // Routes protégées par auth:client
     Route::middleware('auth:client')->group(function () {
@@ -75,11 +76,11 @@ Route::prefix('client')->group(function () {
         Route::get('/orders', [HomeController::class, 'orders'])->name('client.orders');
 
         // Panier
-        Route::get('/show_cart', [HomeController::class, 'show_cart'])->name('cart.show');
-        Route::post('/cart/confirm', [HomeController::class, 'confirmOrder'])->name('cart.confirm');
-        Route::put('/cart/update/{id}', [HomeController::class, 'updateCart'])->name('cart.update');
-        Route::delete('/cart/remove/{id}', [HomeController::class, 'removeCartItem'])->name('cart.remove');
-        Route::post('/add_cart/{reference}', [HomeController::class, 'add_cart'])->name('client.add_cart');
+        Route::get('/show_cart', [HomeController::class, 'show_cart'])->name('client.cart.show');
+        Route::post('/cart/confirm', [HomeController::class, 'confirmOrder'])->name('client.cart.confirm');
+        Route::put('/cart/update/{id}', [HomeController::class, 'updateCart'])->name('client.cart.update');
+        Route::delete('/cart/remove/{id}', [HomeController::class, 'removeCartItem'])->name('client.cart.remove');
+        Route::post('/add_cart/{reference}', [HomeController::class, 'add_cart'])->name('client.cart.add');
     });
 });
 
@@ -135,3 +136,7 @@ Route::prefix('admin')->group(function () {
 // Social login
 Route::get('login/{provider}', [HomeController::class, 'redirect'])->name('social.login');
 Route::get('login/{provider}/callback', [HomeController::class, 'callback'])->name('social.callback');
+
+/*Route::get('/test-db', function () {
+    return DB::table('sessions')->count();
+});*/

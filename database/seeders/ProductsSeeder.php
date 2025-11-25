@@ -1,0 +1,85 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ProductsSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('products')->insert([
+            ['reference'=>'700-HGB-202Q','designation'=>'Four à pizza double','image'=>'Fourdouble-removebg-preview.png','id_category'=>7,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 200 DSL','designation'=>'Congélateur 200 L','image'=>'1762266446_CL 200 DSL.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 220 BCKB HD','designation'=>'Back bar deux portes battantes','image'=>'1762268870_CL 220 BCKB HD.png','id_category'=>17,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 220 BCKB SL','designation'=>'Back bar deux portes coulissantes','image'=>'1762268910_CL 220 BCKB SL.png','id_category'=>17,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 220 SDC','designation'=>'Réfrigérateur une porte slim','image'=>'1762264357_CL 220 SDC.jpg','id_category'=>9,'quantity'=>8,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 300 DFF','designation'=>'Congélateur 300 L','image'=>'1762266842_CL 300 DFF.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 300 DSL','designation'=>'Congélateur 300 L','image'=>'1762266498_CL 300 DSL.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 350 BCKB HD','designation'=>'Back bar deux portes battantes','image'=>'1762268969_CL 350 BCKB HD.png','id_category'=>17,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 350 BCKB SL','designation'=>'Back bar deux portes coulissantes','image'=>'1762269034_CL 350 BCKB SL.png','id_category'=>17,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 380 VDFS','designation'=>'Réfrigérateur négatif','image'=>'1762265838_CL 380 VDFS.jpg','id_category'=>9,'quantity'=>8,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 400 DAC','designation'=>'Congélateur 400 L','image'=>'1762267013_CL 400 DAC.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 400 DFF','designation'=>'Congélateur 400 L','image'=>'1762266882_CL 400 DFF.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 400 DSL','designation'=>'Congélateur 400 L','image'=>'1762266566_CL 400 DSL.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 500 DAF','designation'=>'Congélateur 500 L','image'=>'1762267125_CL 500 DAF.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 500 DFF','designation'=>'Congélateur 500 L','image'=>'1762266920_CL 500 DFF.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 500 DSL','designation'=>'Congélateur 500 L','image'=>'1762266633_CL 500 DSL.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 600 DSL','designation'=>'Congélateur 600 L','image'=>'1762266684_CL 600 DSL.jpg','id_category'=>14,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 900 HDC','designation'=>'Réfrigérateur deux portes battantes','image'=>'1762263189_CL 900 HDC.jpg','id_category'=>9,'quantity'=>2,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL 900 SLDC','designation'=>'Réfrigérateur deux portes coulissantes','image'=>'1762263403_CL 900 SLDC.jpg','id_category'=>9,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL1150','designation'=>'Réfrigérateur deux portes positif','image'=>'1762772502_bleu2-fotor-enhance-20251107141039.jpg','id_category'=>9,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL1600H3','designation'=>'Réfrigérateur trois portes','image'=>'1762771662_CL1600H3C.jpg','id_category'=>9,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL370','designation'=>'Réfrigérateur une porte positif','image'=>'genesys.png','id_category'=>9,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CL380','designation'=>'Réfrigérateur une porte positif','image'=>'1762771759_CL380SDC.png','id_category'=>9,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CR-200','designation'=>'Crochet 200 mm','image'=>'1763202154_1762767183_crochet200.jpg','id_category'=>29,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'CR-300','designation'=>'Crochet 300 mm','image'=>'1762767233_crochet-inox-300mm.jpg','id_category'=>29,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'FR-8+8','designation'=>'FRITEUSE DOUBLE 8+8 LITRES GAZ','image'=>null,'id_category'=>8,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'FR-8L','designation'=>'FRITEUSE SIMPLE 8 LITRES GAZ','image'=>null,'id_category'=>8,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G1400VC-430','designation'=>'Armoire deux portes positifs 1400','image'=>'1762250046_2li.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G1400VF-430','designation'=>'Armoire deux portes négatif 1400','image'=>'1762250149_2li7.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G1600VC-430','designation'=>'Armoire deux portes positif 1600','image'=>'1762250208_2li11.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G1600VF-430','designation'=>'Armoire deux portes négatif 1600','image'=>'1762250182_2li9.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G250HC-430','designation'=>'Comptoir deux portes positif','image'=>'1762269608_yatay1-3.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G250HF-430','designation'=>'Comptoir deux portes négatif','image'=>'1762269789_yatay1-310.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G350HC-430','designation'=>'Comptoir trois portes positif','image'=>'1762269840_yatay4-6.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G350Hf-430','designation'=>'Comptoir trois portes négatif','image'=>'1762270017_yatay4-6.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G450HC-430','designation'=>'Comptoir quatre portes positif','image'=>'1762270128_4l2.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G450HF-430','designation'=>'Comptoir quatre portes positif','image'=>'1762270151_4l4.jpg','id_category'=>4,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G700VC-430','designation'=>'Armoire une porte positif 700','image'=>'1762249589_tekli3.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G700VF-430','designation'=>'Armoire une porte négatif 700','image'=>'1762249635_tekli33.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G800VC-430','designation'=>'Armoire une porte positif 800','image'=>'1762249700_tekli34.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'G800VF-430','designation'=>'Armoire une porte négatif 800','image'=>'1762249853_tekli34.jpg','id_category'=>6,'quantity'=>1,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'HGB-101Q','designation'=>'Four à pizza moyen','image'=>'simple-removebg-preview.png','id_category'=>7,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'HGB-10Q','designation'=>'Four à pizza mini','image'=>'simple-removebg-preview.png','id_category'=>7,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'HGB-20Q','designation'=>'Four à pizza grand','image'=>'simple-removebg-preview.png','id_category'=>7,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'MAC2gps','designation'=>'Machine à café 2 groupes','image'=>'1762769482_2groupesN.jpg','id_category'=>3,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'MAC3gps','designation'=>'Machine à café 3 groupes','image'=>'1762769595_siena-pro-3-tiradores-1024x558.png','id_category'=>3,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'Roul 200*2*50 blanc_opaque','designation'=>'Roul 200mm*2mm*50m blanc opaque','image'=>'blancopaque.jpg','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 blanc_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m blanc transparent','image'=>'blanctransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 bleu_opaque','designation'=>'Roul 200mm*2mm*50m bleu opaque','image'=>'bleuopaque.jpg','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 bleu_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m bleu transparent','image'=>'bleutransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 jaune_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m jaune','image'=>'jaunetransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 négatif','designation'=>'Lanière 200mm*2mm*50m grand froid','image'=>'NEGATIF.jpg','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 noir_opaque','designation'=>'Roul 200mm*2mm*50m noir opaque','image'=>'noir.jpg','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 orange_opaque','designation'=>'Roul 200mm*2mm*50 orange opaque','image'=>'orangeopaque.jpg','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 orange_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m orange transparent','image'=>'orangetransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 positif','designation'=>'Rouleau lanière 200mm*2mm*50m standard','image'=>'STANDARD.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 R-ANTI-UV','designation'=>'Rouleau lanière 200mm*2m*50m rouge anti-UV','image'=>'rouge.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 rouge_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m rouge transparent','image'=>'rougetransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'Roul 200*2*50 vert_transparent','designation'=>'Rouleau lanière 200mm*2mm*50m vert transparent','image'=>'verttransp.png','id_category'=>5,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>null,'updated_at'=>null],
+            ['reference'=>'support1m','designation'=>'Support Inox 1m','image'=>'1762771214_Support1m-fotor-enhance-20251110113815.jpg','id_category'=>29,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'support2m','designation'=>'Support Inox 2m','image'=>'1762771257_support2m.-fotor-enhance-20251110113904.jpg','id_category'=>29,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'T-A','designation'=>'Moulin à café tranquillo automatique','image'=>'tranquilo automatique.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-A','designation'=>'Moulin à café marfil automatique','image'=>'marfil automatique.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-A','designation'=>'Moulin à café marfil automatique','image'=>'marfil automatique.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-B','designation'=>'Moulin à café marfil manuel','image'=>'marfil manuel.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-C','designation'=>'Moulin à café tranquillo manuel','image'=>'tranquilo manuel.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-D','designation'=>'Moulin à café compact','image'=>'compact.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-E','designation'=>'Moulin à café pro','image'=>'pro.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+            ['reference'=>'V-F','designation'=>'Moulin à café express','image'=>'express.png','id_category'=>21,'quantity'=>0,'price'=>0.00,'discount_price'=>null,'created_at'=>now(),'updated_at'=>now()],
+        ]);
+    }
+}
+
