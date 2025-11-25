@@ -1,50 +1,47 @@
 services:
   - type: web
-    name: laravel-app
-    env: php
+    name: bluestrekltd_app
+    env: docker
+    branch: main
     plan: free
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      php artisan key:generate
-      php artisan migrate --force
-    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
-
+    region: oregon
+    # Le Dockerfile à la racine sera utilisé automatiquement
     envVars:
       - key: APP_ENV
         value: production
-
       - key: APP_DEBUG
         value: false
-
       - key: APP_KEY
         generateValue: true
-
-      # ----------------------------
-      # DATABASE CONFIG (IMPORTANT)
-      # ----------------------------
       - key: DB_CONNECTION
-        value: pgsql
-
+        value: mysql
       - key: DB_HOST
-        fromService: postgres-db
-        name: database
-
+        fromDatabase:
+          name: bluestrekltd_db
+          property: host
       - key: DB_PORT
-        value: "5432"
-
+        fromDatabase:
+          name: bluestrekltd_db
+          property: port
       - key: DB_DATABASE
-        fromService: postgres-db
-        property: database
-
+        fromDatabase:
+          name: bluestrekltd_db
+          property: name
       - key: DB_USERNAME
-        fromService: postgres-db
-        property: user
-
+        fromDatabase:
+          name: bluestrekltd_db
+          property: user
       - key: DB_PASSWORD
-        fromService: postgres-db
-        property: password
+        fromDatabase:
+          name: bluestrekltd_db
+          property: password
 
 databases:
-  - name: postgres-db
+  - name: bluestrekltd_db
+    databaseName: bluestrekltd_db
+    user: bluestrekltd_user
+    password: generate
+    engine: mysql
+    version: 8
     plan: free
-    engine: postgres
+    region: oregon
